@@ -1,0 +1,36 @@
+button:hover {
+    text-decoration: none;
+}
+
+.dark-mode {
+    background-color: black;
+    color: #f0f0f5;
+}
+
+.dark-mode h1, h2, h3, h4, h5, h6 {
+    color: #f0f0f5;
+}
+
+.dark-mode #page-home header a {
+    color: #f0f0f5;
+}
+
+#dark-mode {
+    justify-content: space-evenly;
+    margin: 10px 10px;
+    background: var(--title-color);
+    color: white;
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    outline: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

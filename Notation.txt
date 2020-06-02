@@ -1,0 +1,10 @@
+Para o CSS, os elementos HTML são separados em caixas, ou box models.
+
+As formas de exibição podem ser block (linha inteira) e inline (do tamanho dela).
+
+Semântico: ter sentido/significado.
+
+@media, conjunto de regras, necessita do <meta ...>, e nesse local podemos configurar a responsividade da(s) página(s).
+
+Refatorar: modificar algumas coisas. O que significa também fazer ajustes para facilitar manutenções futuras.
+
