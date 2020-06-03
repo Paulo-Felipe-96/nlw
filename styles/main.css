@@ -6,6 +6,8 @@
 * {
     margin: 0;
     padding: 0;
+    /* o preenchimento nao excede o box-size */
+    box-sizing: border-box;
 }
 
 html {

@@ -8,3 +8,28 @@ Semântico: ter sentido/significado.
 
 Refatorar: modificar algumas coisas. O que significa também fazer ajustes para facilitar manutenções futuras.
 
+Promise: a função fetch é uma promise, que "promete ir até determinado lugar", mas pode ou não trazer consigo dados.
+
+## create-point.js(
+
+    Para fazer a população de:
+
+    documento
+        seleciona o nome do campo estado
+        ouvidor de eventos (evento, funcao por referencia)
+
+    CIDADES
+    a funcao com o evento
+        seleciona o nome do campo cidade
+        valor dos estados trazido no evento com target (o responsavel pela disparada)
+        url da api
+
+        promessa
+            retorno do objeto json
+            pega novamente e da outro nome
+                estrutura of
+                    selecao do campo cidade recebe option com id e nome
+
+                    ativa o campo de selecao setando para falso o valor disabled
+
+)
