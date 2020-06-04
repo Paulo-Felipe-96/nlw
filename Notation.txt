@@ -33,3 +33,9 @@ Promise: a função fetch é uma promise, que "promete ir até determinado lugar
                     ativa o campo de selecao setando para falso o valor disabled
 
 )
+
+Toda tecnologia/stack tem suas vantagens e desvantagens
+    . oportunidades de mercado
+    . momento da carreira
+    . contexto onde é usada
+    . não há como fugir do JS
