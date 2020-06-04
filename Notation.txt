@@ -1,3 +1,5 @@
+## FRONT-END
+
 Para o CSS, os elementos HTML são separados em caixas, ou box models.
 
 As formas de exibição podem ser block (linha inteira) e inline (do tamanho dela).
@@ -39,3 +41,27 @@ Toda tecnologia/stack tem suas vantagens e desvantagens
     . momento da carreira
     . contexto onde é usada
     . não há como fugir do JS
+
+
+## BACK-END
+
+Responsabilidades
+    . Receber requisições do cliente
+    . Preparar as requisições (regras de negócio)
+    . Enviar resposta
+    . Dados (tratamento dos dados)
+
+Tecnologias
+    . Javascript
+    . Node.js
+    . Banco de dados SQL
+    . SQLite
+
+Estrutura do projeto:
+    src > recursos a serem servidos para o front-end
+    
+Criação do servidor:
+    Inicializar o projeto na raiz
+        $ npm init -y
+    módulos extras
+        Express
