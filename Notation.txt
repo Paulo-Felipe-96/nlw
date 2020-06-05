@@ -65,3 +65,11 @@ Criação do servidor:
         $ npm init -y
     módulos extras
         Express
+    monitoramento automático de alterações no arquivo do servidor
+        $ npm i nodemon -D (a presenta do -D indica dependência de desenvolvimento)
+
+Uma das regras do HTTP é trabalhar com verbos, um meio de conversar através do HTTP.
+
+Tamplate-engine (nunjucks), um motor que possibilita trabalhar com os layouts, adicionando variáveis e
+funções por exemplo.
+    $ npm i nunjucks
