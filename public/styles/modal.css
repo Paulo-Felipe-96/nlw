@@ -23,7 +23,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     margin-bottom: 48px;
 }
 
@@ -44,7 +43,6 @@
 #modal form label {
     font-size: 14px;
     line-height: 16px;
-
     display: block;
     margin-bottom: 8px;
 }
@@ -55,14 +53,10 @@
 
 #modal form input {
     flex: 1;
-
     background-color: var(--branco-color);
-
     border-radius: 8px 0 0 8px;
     border: 0;
-
     padding: 16px 24px;
-
     font-size: 16px;
     color: #6c6c80;
 }
@@ -77,4 +71,17 @@
 
 #modal form button:hover {
     background-color: #2fb85e;
+}
+
+/* para o modal point-created */
+
+#modal.point .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal.point h1 {
+    color: white;
+    margin-top: 32px;
 }

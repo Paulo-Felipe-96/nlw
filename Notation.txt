@@ -73,3 +73,16 @@ Uma das regras do HTTP é trabalhar com verbos, um meio de conversar através do
 Tamplate-engine (nunjucks), um motor que possibilita trabalhar com os layouts, adicionando variáveis e
 funções por exemplo.
     $ npm i nunjucks
+
+## A milha extra
+    . ler documentaões das ferramentas
+    . compartilhar os conhecimentos
+    . organizar as redes sociais para que sejam mais profissionais
+    . participar de comunidades
+    . projetos pessoais
+    . busca do próximo nível
+
+O banco de dados SQLite
+    $ sudo npm install sqlite3
+
+.callback - "Chame essa função de volta"
