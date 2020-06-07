@@ -120,6 +120,10 @@
     {% if saved %}
         {% include "partials/point-created.html" %}
     {% endif %}
+
+    {% if notsaved %}
+        {% include "partials/point-not-created.html" %}
+    {% endif %}
 {% endblock modal%}
 
 {% block scripts %}
