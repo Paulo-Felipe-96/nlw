@@ -3,7 +3,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "cypresso": "cypress open"
+    "cyopen": "cypress open",
+    "cyspec": "$(npm bin)/cypress run --spec"
   },
   "dependencies": {
     "express": "^4.17.1",
