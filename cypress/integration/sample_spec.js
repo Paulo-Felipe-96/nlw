@@ -1,6 +1,6 @@
 describe("Ecoleta", () => {
-    it("Visitar página de cadastro, cadastrar ponto de coleta", () => {
-        cy.visit("http://localhost:3000");
+    it("Visita página de cadastro, cadastra um ponto de coleta e retorna pra home", () => {
+        cy.visit("http://localhost:3000"); // poderia ser uma .env
 
         cy.contains("Cadastre um ponto de coleta").click();
 
@@ -51,5 +51,23 @@ describe("Ecoleta", () => {
             .click()
             .url()
             .should("include", "/search?search=Osasco");
+    });
+
+    it("Pesquisa pontos de coleta inexistentes", () => {
+        cy.visit("localhost:3000");
+
+        cy.contains("Pesquisar pontos de coleta").click();
+
+        cy.get("input").type("Carapicuiba").should("have.value", "Carapicuiba");
+
+        cy.get("button")
+            .click()
+            .url()
+            .should("include", "/search?search=Carapicuiba");
+
+        cy.get("h4").should(
+            "have.text",
+            "\n                Nenhum\n                local encontrado\n            "
+        );
     });
 });
