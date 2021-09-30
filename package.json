@@ -2,7 +2,9 @@
   "name": "nlw",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "cyopen": "cypress open",
+    "cyspec": "$(npm bin)/cypress run --spec"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -10,6 +12,8 @@
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
+    "cypress": "^8.4.1",
+    "eslint-plugin-cypress": "^2.12.1",
     "nodemon": "^2.0.4"
   }
 }
