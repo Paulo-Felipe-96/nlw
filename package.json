@@ -2,9 +2,10 @@
   "name": "nlw",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js",
-    "cyopen": "cypress open",
-    "cyspec": "$(npm bin)/cypress run --spec"
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "cy:open": "cypress open",
+    "cy:run": "$(npm bin)/cypress run --spec",
+    "start": "NODE_ENV=production node src/server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -15,5 +16,8 @@
     "cypress": "^8.4.1",
     "eslint-plugin-cypress": "^2.12.1",
     "nodemon": "^2.0.4"
+  },
+  "volta": {
+    "node": "14.10.1"
   }
 }
