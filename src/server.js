@@ -1,45 +1,44 @@
-const express = require("express")
-const server = express()
+const express = require("express");
+const server = express();
 
 // pegar o banco de dados
-const db = require("./database/db")
+const db = require("./database/db");
 
 // configura pasta public
-server.use(express.static("public"))
+server.use(express.static("public"));
 
 // habilitar o uso do req.body na nossa aplicação
-server.use(express.urlencoded({ extended: true }))
+server.use(express.urlencoded({ extended: true }));
 
 // utilizando template engine
-const nunjucks = require("nunjucks")
+const nunjucks = require("nunjucks");
 nunjucks.configure("src/views", {
-    express: server,
-    // evita devolução de cache
-    noCache: true
-})
+  express: server,
+  // evita devolução de cache
+  noCache: true,
+});
 
 // configurar caminhos da minha aplicação
 // página inicial
 // req: Requisição
 // res: Resposta
 server.get("/", (req, res) => {
-    return res.render("index.html", { title: "Um titulo" })
-})
+  return res.render("index.html", { title: "Um titulo" });
+});
 
 server.get("/create-point", (req, res) => {
-    // req.query: Query strings da nossa URL
-    // console.log(req.query)
-    return res.render("create-point.html")
-})
+  // req.query: Query strings da nossa URL
+  // console.log(req.query)
+  return res.render("create-point.html");
+});
 
 server.post("/savepoint", (req, res) => {
+  // req.body: O corpo do formulário
+  // console.log(req.body)
 
-    // req.body: O corpo do formulário
-    // console.log(req.body)
-
-    // inserir dados no banco de dados
-    // // INSERIR dados na tabela
-    const queryInsert = `
+  // inserir dados no banco de dados
+  // // INSERIR dados na tabela
+  const queryInsert = `
         INSERT INTO places (
             name,
             image,
@@ -49,57 +48,53 @@ server.post("/savepoint", (req, res) => {
             city,
             items
             ) VALUES (?,?,?,?,?,?,?);
-        `
-    const values = [
-        req.body.name,
-        req.body.image,
-        req.body.address,
-        req.body.address2,
-        req.body.state,
-        req.body.city,
-        req.body.items
-    ]
+        `;
+  const values = [
+    req.body.name,
+    req.body.image,
+    req.body.address,
+    req.body.address2,
+    req.body.state,
+    req.body.city,
+    req.body.items,
+  ];
 
-    function afterInsertData(err) {
-
-        if (err) {
-            console.log(err)
-            return res.render("create-point.html", { notsaved: true });
-        }
-        console.log("Cadastrado com sucesso")
-        console.log(this) // referencia a função que está executando
-        return res.render("create-point.html", { saved: true });
+  function afterInsertData(err) {
+    if (err) {
+      console.log(err);
+      return res.render("create-point.html", { notsaved: true });
     }
+    console.log("Cadastrado com sucesso");
+    console.log(this); // referencia a função que está executando
+    return res.render("create-point.html", { saved: true });
+  }
 
-    db.run(queryInsert, values, afterInsertData)
-
-})
+  db.run(queryInsert, values, afterInsertData);
+});
 
 server.get("/search", (req, res) => {
+  const search = req.query.search;
 
-    const search = req.query.search
+  if (search == "") {
+    // pesquisa vazia
+    return res.render("search-results.html", { total: 0 });
+  }
 
-    if (search == "") {
-        // pesquisa vazia
-        return res.render("search-results.html", { total: 0 });
-    }
+  // pegar os dados do banco de dados
+  // CONSULTAR dados da tabela
 
-    // pegar os dados do banco de dados
-    // CONSULTAR dados da tabela
+  const querySelect = `SELECT * FROM places WHERE city LIKE '%${search}%'`;
 
-    const querySelect = `SELECT * FROM places WHERE city LIKE '%${search}%'`
+  function afterSelect(err, rows) {
+    const total = rows.length;
+    const resp = res.render("search-results.html", { places: rows, total });
+    const failure = console.log(err);
 
-    function afterSelect(err, rows) {
-        const total = rows.length;
-        const resp = res.render("search-results.html", { places: rows, total });
-        const failure = console.log(err);
+    return err !== null ? failure : resp;
+  }
 
-        return err !== null ? failure : resp
-    }
-
-    db.all(querySelect, afterSelect)
-
-})
+  db.all(querySelect, afterSelect);
+});
 
 // ligar o servidor
-server.listen(3000)
+server.listen(3000);
