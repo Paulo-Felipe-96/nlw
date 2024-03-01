@@ -3,21 +3,18 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon src/server.js",
-    "cy:open": "cypress open",
+    "cy:open": "node_modules/.bin/cypress open",
     "cy:run": "$(npm bin)/cypress run --spec",
     "start": "NODE_ENV=production node src/server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
     "nunjucks": "^3.2.1",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "cypress": "^8.4.1",
+    "cypress": "^8.7.0",
     "eslint-plugin-cypress": "^2.12.1",
     "nodemon": "^2.0.4"
-  },
-  "volta": {
-    "node": "14.10.1"
   }
 }
